@@ -1,0 +1,258 @@
+.app {
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.room-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Room Container */
+.room-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 24px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.room-name {
+  margin: 0 0 16px;
+}
+
+/* Variants List */
+.variants-list {
+  width: 100%;
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.variant-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  background: #fafafa;
+}
+
+.variant-left {
+  flex: 1;
+}
+
+.variant-title {
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.variant-sub {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.variant-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.price-line {
+  display: flex;
+  gap: 6px;
+}
+
+.orig {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.new {
+  font-weight: bold;
+}
+
+.badge {
+  background: #2b6cb0;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.select-btn {
+  background: #28a745;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.toggle-btn {
+  margin-top: 10px;
+  background: none;
+  border: none;
+  color: #2b6cb0;
+  cursor: pointer;
+}
+
+/* Media Containers */
+.media-container,
+.lazy-image-container,
+.lazy-video-container {
+  width: 100%;
+  max-width: 600px;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Images */
+.lazy-image,
+.room-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.lazy-image.loaded,
+.room-image.visible {
+  opacity: 1;
+}
+
+/* Video */
+.video-element,
+.video-style {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.video-element.loaded,
+.video-style.opacity-100 {
+  opacity: 1;
+}
+
+/* Skeletons */
+.skeleton,
+.skeleton-image,
+.skeleton-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #e0e0e0;
+  border-radius: inherit;
+  animation: pulse 1.5s infinite;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Spinner */
+.spinner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  margin: 16px 0;
+}
+
+.spinner-circle {
+  border: 3px solid #ccc;
+  border-top: 3px solid #333;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Footer messages */
+.loading-footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.end-message {
+  color: #666;
+  margin-top: 10px;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .media-container,
+  .lazy-image-container,
+  .lazy-video-container {
+    height: 350px;
+  }
+
+  .room-container {
+    padding: 8px;
+    margin: 16px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .media-container,
+  .lazy-image-container,
+  .lazy-video-container {
+    height: 250px;
+  }
+
+  .room-container {
+    padding: 6px;
+    margin: 12px auto;
+  }
+
+  .variants-list {
+    gap: 6px;
+  }
+}
